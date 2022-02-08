@@ -10,9 +10,6 @@ Spin up a full AWS/Avi environment (through Terraform).
 AWS_DEFAULT_REGION=eu-west-1
 AWS_SECRET_ACCESS_KEY=****************************
 AWS_ACCESS_KEY_ID=****************************
-TF_VAR_accessKeyAws=****************************
-TF_VAR_secretKeyAws=****************************
-TF_VAR_regionAws=eu-west-1
 ```
 - SSH Key (public and private) paths defined in var.ssh_key.public and var.ssh_key.private
 
