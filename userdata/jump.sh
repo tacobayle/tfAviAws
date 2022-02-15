@@ -11,7 +11,7 @@ pip3 install avisdk==${avisdkVersion}
 pip3 install dnspython
 pip3 install boto3
 pip3 install botocore
-sudo -u ubuntu ansible-galaxy install -f avinetworks.avisdk
+sudo -u ubuntu ansible-galaxy collection install vmware.alb
 sudo mkdir -p /opt/ansible/inventory
 sudo tee /opt/ansible/inventory/aws_ec2.yaml > /dev/null <<EOT
 ---

@@ -30,13 +30,10 @@ variable "ansible" {
   default = {
     version = "2.10.7"
     prefixGroup = "aws"
-    aviPbAbsentUrl = "https://github.com/tacobayle/ansiblePbAviAbsent"
-    aviPbAbsentTag = "v1.54"
-    directory = "ansible"
-    aviConfigureTag = "v6.08"
-    aviConfigureUrl = "https://github.com/tacobayle/aviConfigure"
-//    opencartInstallUrl = "https://github.com/tacobayle/ansibleOpencartInstall"
-//    opencartInstallTag = "v1.19"
+    aviPbAbsentUrl = "https://github.com/tacobayle/ansibleAviClear"
+    aviPbAbsentTag = "v1.02"
+    aviConfigureTag = "v1.00"
+    aviConfigureUrl = "https://github.com/tacobayle/ansibleAviConfig"
   }
 }
 
