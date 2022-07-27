@@ -15,7 +15,7 @@
         "hostname": "controller",
         "count": "1",
         "type": "t2.2xlarge",
-        "version": "21.1.3",
+        "version": "22.1.1",
         "from_email": "avicontroller@avidemo.fr",
         "se_in_provider_context": "false",
         "tenant_access_to_provider_se": "true",

@@ -26,7 +26,7 @@ on linux_amd64
 
 ### Avi version
 ```
-Avi 21.1.3
+Avi 22.1.1
 ```
 
 ### AWS Region:
