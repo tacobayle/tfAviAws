@@ -8,8 +8,8 @@ variable "aws" {}
 
 variable "ssh_key" {
   default = {
-    private = "~/creds/ssh/cloudKey"
-    public = "~/creds/ssh/cloudKey.pub"
+    private = "/opt/creds/ssh/cloudKey"
+    public = "/opt/creds/ssh/cloudKey.pub"
   }
 }
 

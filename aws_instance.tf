@@ -1,15 +1,5 @@
 # Retrieve AMi details
 
-data "aws_ami" "aviAmi" {
-  owners           = ["aws-marketplace"]
-  most_recent      = true
-
-  filter {
-    name   = "name"
-    values = ["Avi*Controller-${var.aws.controller["version"]}*"]
-  }
-
-}
 
 data "aws_ami" "ubuntuBionic" {
   owners           = ["099720109477"]
@@ -38,7 +28,8 @@ data "aws_ami" "ubuntuFocal" {
 resource "aws_instance" "aviCtrl" {
   count = var.aws.controller["count"]
   instance_type = var.aws.controller["type"]
-  ami = data.aws_ami.aviAmi.id
+#  ami = data.aws_ami.aviAmi.id
+  ami = "ami-0b7cb52d5c6c54650"
   key_name = aws_key_pair.kpAvi.id
   iam_instance_profile = aws_iam_instance_profile.AviController-Instance-Profile.name
   vpc_security_group_ids = [aws_security_group.sgAvi.id]

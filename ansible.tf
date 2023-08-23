@@ -22,3 +22,38 @@ resource "null_resource" "foo7" {
     ]
   }
 }
+
+
+data "template_file" "traffic_gen" {
+  template = file("templates/traffic_gen.sh.template")
+  vars = {
+    controllerPrivateIp = jsonencode(aws_instance.aviCtrl[0].private_ip)
+    avi_password = jsonencode(var.avi_password)
+    avi_username = "admin"
+  }
+}
+
+resource "null_resource" "transfer_traffic_gen" {
+  depends_on = [null_resource.foo7]
+
+  connection {
+    host        = aws_instance.jump.public_ip
+    type        = "ssh"
+    agent       = false
+    user        = var.jump["username"]
+    private_key = file(var.ssh_key.private)
+  }
+
+  provisioner "file" {
+    content = data.template_file.traffic_gen.rendered
+    destination = "/home/ubuntu/traffic_gen.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod u+x /home/${var.jump["username"]}/traffic_gen.sh",
+      "(crontab -l 2>/dev/null; echo \"* * * * * /home/${var.jump["username"]}/traffic_gen.sh\") | crontab -"
+    ]
+  }
+
+}
