@@ -19,7 +19,7 @@ variable "jump" {
     type = "t2.medium"
     userdata = "userdata/jump.sh"
     count = "1"
-    avisdkVersion = "22.1.1"
+    avisdkVersion = "22.1.4"
     username = "ubuntu"
     hostname = "jump"
   }

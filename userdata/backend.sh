@@ -11,6 +11,7 @@ sudo docker build . --tag demovip_server:latest
 ifPrimary=`ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//"`
 ip=$(ip -f inet addr show $ifPrimary | awk '/inet / {print $2}' | awk -F/ '{print $1}')
 sudo docker run -d -p $ip:8080:80 demovip_server:latest
+sudo docker run --name hackazon -d -p 8081:80 mutzel/all-in-one-hackazon:postinstall supervisord -n
 echo "cloud init done" | tee /tmp/cloudInitDone.log
 # while true
 # do
