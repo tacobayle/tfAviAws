@@ -1,7 +1,9 @@
 # AWS  variables
 
 variable "avi_password" {}
-variable "avi_username" {}
+variable "avi_username" {
+  default = "admin"
+}
 variable "avi_old_password" {}
 
 variable "aws" {}
